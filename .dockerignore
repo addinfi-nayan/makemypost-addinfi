@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+.next/
+out/
+
+# Production
+.env.local
+.env.production
+*.log
+.DS_Store
+.vscode/
+.idea/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+*.tgz
+*.tar.gz
