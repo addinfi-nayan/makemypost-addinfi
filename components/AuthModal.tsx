@@ -3,6 +3,7 @@
 import React from 'react';
 import { LogIn, X } from 'lucide-react';
 import { createBrowserClient } from '@/lib/supabase';
+import { getAuthCallbackUri } from '@/lib/utils/url';
 
 interface AuthModalProps {
     isOpen: boolean;
@@ -18,7 +19,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
         const { error } = await supabase.auth.signInWithOAuth({
             provider: 'google',
             options: {
-                redirectTo: `${window.location.origin}/auth/callback`,
+                redirectTo: getAuthCallbackUri(),
             },
         });
         if (error) {

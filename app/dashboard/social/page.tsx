@@ -18,6 +18,7 @@ import { twMerge } from 'tailwind-merge';
 import { createBrowserClient } from '@/lib/supabase';
 import { saveSocialToken } from '@/lib/encryption';
 import { generateOAuthUrl, generateState, storeOAuthState, verifyToken, SOCIAL_PLATFORMS } from '@/lib/social-auth';
+import { getOAuthRedirectUri } from '@/lib/utils/url';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 function cn(...inputs: ClassValue[]) {
@@ -95,7 +96,7 @@ export default function SocialConnectionPage() {
             storeOAuthState(state, platformId);
 
             // Generate OAuth URL
-            const redirectUri = `${window.location.origin}/api/oauth/callback`;
+            const redirectUri = getOAuthRedirectUri();
             const oauthUrl = generateOAuthUrl(platform, redirectUri, state);
 
             // Redirect to OAuth provider
