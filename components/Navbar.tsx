@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { createBrowserClient } from '@/lib/supabase';
 import { useRouter } from 'next/navigation';
+import AuthModal from '@/components/AuthModal';
+import { createPortal } from 'react-dom';
 import {
   ChevronDown,
   LogOut,
@@ -19,8 +21,14 @@ interface NavbarProps {
 export default function Navbar({ showDashboardLink = false, hideUserDropdown = false }: NavbarProps) {
   const [user, setUser] = useState<any>(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const supabase = createBrowserClient();
   const router = useRouter();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     const getUser = async () => {
@@ -30,7 +38,10 @@ export default function Navbar({ showDashboardLink = false, hideUserDropdown = f
     getUser();
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
+      setUser(session?.user);
+      if (session?.user) {
+        setIsAuthModalOpen(false);
+      }
     });
 
     return () => subscription.unsubscribe();
@@ -119,24 +130,33 @@ export default function Navbar({ showDashboardLink = false, hideUserDropdown = f
                 </div>
               ) : (
                 <>
-                  <Link
-                    href="/login"
+                  <button
+                    onClick={() => setIsAuthModalOpen(true)}
                     className="text-[13px] text-[var(--text-dim)] hover:text-[var(--text)] transition-colors cursor-pointer"
                   >
                     Log in
-                  </Link>
-                  <Link
-                    href="/login"
+                  </button>
+                  <button
+                    onClick={() => setIsAuthModalOpen(true)}
                     className="text-[13px] font-medium bg-white text-[var(--bg)] px-4 py-1.5 rounded-lg hover:bg-white/90 transition-colors cursor-pointer"
                   >
                     Start Free
-                  </Link>
+                  </button>
                 </>
               )}
             </>
           )}
         </div>
       </div>
+
+      {/* Auth Modal - Rendered at document body level */}
+      {isMounted && createPortal(
+        <AuthModal
+          isOpen={isAuthModalOpen}
+          onClose={() => setIsAuthModalOpen(false)}
+        />,
+        document.body
+      )}
     </nav>
   );
 }

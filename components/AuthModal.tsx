@@ -27,23 +27,17 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
     };
 
     return (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
-            {/* Backdrop */}
-            <div
-                className="absolute inset-0 bg-black/60 backdrop-blur-md transition-opacity"
-                onClick={onClose}
-            />
-
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md" onClick={onClose}>
             {/* Modal Card */}
-            <div className="relative w-full max-w-md gradient-border shadow-2xl animate-fade-up">
-                <div className="bg-[var(--bg-card)] p-8 rounded-2xl border border-white/10">
-                    <button
-                        onClick={onClose}
-                        className="absolute top-4 right-4 text-[var(--text-muted)] hover:text-[var(--text)] transition-colors p-2"
-                    >
-                        <X className="w-5 h-5" />
-                    </button>
+            <div className="relative w-full max-w-md bg-[var(--bg-card)] rounded-2xl border border-white/10 shadow-2xl animate-fade-up" onClick={(e) => e.stopPropagation()}>
+                <button
+                    onClick={onClose}
+                    className="absolute top-4 right-4 text-[var(--text-muted)] hover:text-[var(--text)] transition-colors p-2"
+                >
+                    <X className="w-5 h-5" />
+                </button>
 
+                <div className="p-8">
                     <div className="text-center mb-8 pt-4">
                         <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-tr from-[var(--accent-1)] to-[var(--accent-2)] rounded-2xl shadow-lg mb-4">
                             <LogIn className="w-8 h-8 text-white" />
