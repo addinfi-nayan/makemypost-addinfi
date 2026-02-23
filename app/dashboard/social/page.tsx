@@ -165,7 +165,8 @@ export default function SocialConnectionPage() {
                 { title: 'Auto Articles', desc: 'Pulse-ready content generation', icon: Sparkles },
                 { title: 'Network Link', desc: 'Sync with your company page', icon: ShieldCheck },
             ],
-            requires: 'Direct connection via LinkedIn API.'
+            requires: 'Coming soon - Direct connection via LinkedIn API.',
+            isComingSoon: true
         }
     ];
 
@@ -173,7 +174,7 @@ export default function SocialConnectionPage() {
         <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div>
                 <h1 className="text-3xl font-[900] text-[var(--text)] tracking-tighter uppercase italic">Social <span className="grad-text">Connections</span></h1>
-                <p className="text-[var(--text-dim)] mt-2 font-[900] text-xs uppercase tracking-widest">Link your Instagram and Meta accounts to enable direct scheduling.</p>
+                <p className="text-[var(--text-dim)] mt-2 font-[900] text-xs uppercase tracking-widest">Link your Instagram and Facebook accounts to enable direct scheduling. LinkedIn integration coming soon!</p>
                 
                 {connectionError && (
                     <div className="mt-4 p-3 bg-red-400/10 border border-red-400/20 rounded-xl text-red-400 text-xs">
@@ -186,6 +187,22 @@ export default function SocialConnectionPage() {
                 {platforms.map((platform) => {
                     const isConnected = connectedPlatforms.includes(platform.id);
                     const isConnecting = connectingId === platform.id;
+                    const isComingSoon = platform.isComingSoon || false;
+
+                    if (isComingSoon) {
+                        return (
+                            <div key={platform.id} className="bg-[var(--bg-card)]/20 rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden transition-all group hover:border-white/10 flex flex-col h-full opacity-75">
+                                <div className="p-6 md:p-8 text-center space-y-4 flex flex-col flex-1">
+                                    <div className={cn("inline-flex items-center justify-center w-16 h-16 bg-gradient-to-tr rounded-2xl shadow-xl mb-2 transform -rotate-3 group-hover:rotate-0 transition-transform duration-500 mx-auto", platform.color)}>
+                                        <platform.icon className="w-8 h-8 text-white" />
+                                    </div>
+                                    <h3 className="text-sm font-[900] text-[var(--text)] tracking-tight uppercase italic leading-none">{platform.name}</h3>
+                                    <p className="text-[var(--text-dim)] font-[900] text-[9px] uppercase tracking-widest opacity-60 mt-1">Coming Soon</p>
+                                    <p className="text-[var(--text-dim)] text-xs mt-3 text-center leading-relaxed">{platform.requires}</p>
+                                </div>
+                            </div>
+                        );
+                    }
 
                     if (isConnected) {
                         return (

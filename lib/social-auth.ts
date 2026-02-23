@@ -24,7 +24,7 @@ export const SOCIAL_PLATFORMS: Record<string, SocialPlatform> = {
     id: 'instagram',
     name: 'Instagram',
     oauthUrl: 'https://api.instagram.com/oauth/authorize',
-    scopes: ['user_profile', 'user_media', 'instagram_content_publish'],
+    scopes: ['instagram_basic', 'instagram_content_publish', 'pages_show_list', 'pages_read_engagement'],
     clientId: process.env.INSTAGRAM_CLIENT_ID || ''
   },
   facebook: {
