@@ -90,12 +90,12 @@ export default function CreatePostPage() {
     };
 
     return (
-        <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+        <div className="space-y-8 pt-24 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="space-y-2">
-                <h1 className="text-4xl font-[900] text-[var(--text)] tracking-tighter uppercase italic">
+                <h1 className="text-4xl font-[900] text-white tracking-tighter uppercase italic">
                     Creative <span className="grad-text animate-glow">Engine</span>
                 </h1>
-                <p className="text-[var(--text-dim)] font-[900] text-xs uppercase tracking-widest">Phase: Aesthetic Synthesis</p>
+                <p className="text-white/70 font-[900] text-xs uppercase tracking-widest">Phase: Aesthetic Synthesis</p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -103,27 +103,27 @@ export default function CreatePostPage() {
                 <div className="lg:col-span-2 space-y-8">
                     {/* Topic Input */}
                     <section className="bg-[var(--bg-card)]/40 p-6 rounded-2xl border border-white/5 shadow-2xl">
-                        <label className="block text-xs font-[900] text-[var(--text-dim)] uppercase tracking-widest italic mb-4">
+                        <label className="block text-xs font-[900] text-white/70 uppercase tracking-widest italic mb-4">
                             Input Signal (Topic)
                         </label>
                         <textarea
                             value={topic}
                             onChange={(e) => setTopic(e.target.value)}
                             placeholder="e.g. Launching our new summer collection with a 20% discount..."
-                            className="w-full min-h-[140px] p-4 bg-white/[0.03] border border-white/5 rounded-xl focus:ring-1 focus:ring-[var(--accent-1)] focus:border-transparent transition-all outline-none resize-none text-[var(--text)] text-sm placeholder:text-white/30"
+                            className="w-full min-h-[140px] p-4 bg-white/[0.03] border border-white/5 rounded-xl focus:ring-1 focus:ring-[var(--accent-1)] focus:border-transparent transition-all outline-none resize-none text-white text-sm placeholder:text-white/30"
                         />
                     </section>
 
                     {/* Theme Selector */}
                     <section className="glass-morphism p-8 rounded-[2.5rem] border border-white/5 shadow-2xl">
                         <div className="flex items-center justify-between mb-6">
-                            <label className="text-xs font-[900] text-[var(--text-dim)] uppercase tracking-widest italic">Core Theme</label>
+                            <label className="text-xs font-[900] text-white uppercase tracking-widest italic">Core Theme</label>
                             <button
                                 onClick={handleMagicSync}
                                 disabled={syncing}
-                                className="flex items-center gap-2 text-[11px] font-[900] uppercase tracking-widest text-[var(--accent-1)] hover:text-[var(--text)] bg-white/5 px-4 py-2 rounded-full transition-all hover:scale-105 active:scale-95 border border-white/5"
+                                className="flex items-center gap-2 text-[11px] font-[900] uppercase tracking-widest text-white hover:text-white bg-white/5 px-4 py-2 rounded-full transition-all hover:scale-105 active:scale-95 border border-white/5"
                             >
-                                {syncing ? <Loader2 className="w-3 h-3 animate-spin" /> : <Sparkles className="w-3 h-3 animate-glow text-[var(--accent-1)]" />}
+                                {syncing ? <Loader2 className="w-3 h-3 animate-spin" /> : <Sparkles className="w-3 h-3 animate-glow text-white" />}
                                 Quantum Sync
                             </button>
                         </div>
@@ -140,9 +140,9 @@ export default function CreatePostPage() {
                                     )}
                                 >
                                     {theme === t.name && <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[var(--accent-1)]/10 to-transparent -translate-x-full animate-[shimmer_2s_infinite]" />}
-                                    <t.icon className={cn("w-6 h-6 mb-4 transition-transform duration-500 group-hover:scale-110", theme === t.name ? "text-[var(--accent-1)]" : "text-white/30")} />
-                                    <div className="font-[900] text-[var(--text)] text-xs uppercase tracking-widest">{t.name}</div>
-                                    <div className="text-[11px] text-[var(--text-dim)] mt-1 uppercase font-[900] tracking-tight">{t.description}</div>
+                                    <t.icon className={cn("w-6 h-6 mb-4 transition-transform duration-500 group-hover:scale-110", theme === t.name ? "text-white" : "text-white/30")} />
+                                    <div className="font-[900] text-white text-xs uppercase tracking-widest">{t.name}</div>
+                                    <div className="text-[11px] text-white mt-1 uppercase font-[900] tracking-tight">{t.description}</div>
                                 </button>
                             ))}
                         </div>
@@ -150,7 +150,7 @@ export default function CreatePostPage() {
 
                     {/* Aspect Ratio */}
                     <section className="bg-[var(--bg-card)]/40 p-6 rounded-2xl border border-white/5 shadow-2xl">
-                        <label className="block text-xs font-[900] text-[var(--text-dim)] uppercase tracking-widest italic mb-6">Aspect Ratio</label>
+                        <label className="block text-xs font-[900] text-white uppercase tracking-widest italic mb-6">Aspect Ratio</label>
                         <div className="flex gap-4">
                             {aspectRatios.map((ratio) => (
                                 <button
@@ -160,7 +160,7 @@ export default function CreatePostPage() {
                                         "px-6 py-3 rounded-xl border font-[900] text-[11px] uppercase tracking-widest transition-all duration-200",
                                         aspectRatio === ratio
                                             ? "border-[var(--accent-1)] bg-white text-[var(--bg)] shadow-[0_0_20px_rgba(255,255,255,0.1)]"
-                                            : "border-white/5 bg-white/[0.03] text-[var(--text-dim)] hover:border-white/10 hover:text-[var(--text)]"
+                                            : "border-white/5 bg-white/[0.03] text-white hover:border-white/10 hover:text-white"
                                     )}
                                 >
                                     {ratio}
@@ -185,12 +185,12 @@ export default function CreatePostPage() {
                     <div className="glass-morphism p-1 rounded-[2.5rem] sticky top-8 border border-white/5">
                         <div className="bg-[var(--bg-card)] rounded-[2.3rem] p-8 space-y-8 h-full">
                             <div className="flex items-center justify-between">
-                                <h3 className="text-[11px] font-[900] text-[var(--accent-1)] uppercase tracking-widest">Artistic Design Preview</h3>
-                                <div className="px-3 py-1 bg-[var(--accent-1)]/5 border border-[var(--accent-1)]/20 text-[var(--accent-1)] text-[9px] font-[900] rounded-full animate-pulse">Matrix Active</div>
+                                <h3 className="text-[11px] font-[900] text-white uppercase tracking-widest">Artistic Design Preview</h3>
+                                <div className="px-3 py-1 bg-[var(--accent-1)]/5 border border-[var(--accent-1)]/20 text-white text-[9px] font-[900] rounded-full animate-pulse">Matrix Active</div>
                             </div>
 
                             <div className={cn(
-                                "bg-white/[0.02] rounded-3xl flex flex-col items-center justify-center border border-white/5 text-[var(--text-dim)] overflow-hidden relative group",
+                                "bg-white/[0.02] rounded-3xl flex flex-col items-center justify-center border border-white/5 text-white overflow-hidden relative group",
                                 aspectRatio === '1:1' ? 'aspect-square' : aspectRatio === '4:5' ? 'aspect-[4/5]' : 'aspect-[9/16]'
                             )}>
                                 <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0))] -z-10" />
@@ -199,17 +199,17 @@ export default function CreatePostPage() {
                                         <div className="relative flex items-center justify-center">
                                             <div className="absolute w-12 h-12 border border-[var(--accent-1)]/30 rounded-full animate-spin" />
                                             <div className="absolute w-8 h-8 border border-[var(--accent-2)]/20 rounded-full animate-[spin_2s_linear_infinite_reverse]" />
-                                            <Sparkles className="w-5 h-5 text-[var(--accent-1)] animate-pulse" />
+                                            <Sparkles className="w-5 h-5 text-white animate-pulse" />
                                         </div>
-                                        <p className="text-[11px] font-[900] text-[var(--accent-1)] uppercase tracking-[0.3em] animate-pulse">Merging Art DNA...</p>
+                                        <p className="text-[11px] font-[900] text-white uppercase tracking-[0.3em] animate-pulse">Merging Art DNA...</p>
                                     </div>
                                 ) : (
                                     <div className="text-center p-10 group-hover:scale-110 transition-transform duration-700">
                                         <div className="relative">
-                                            <Maximize className="w-12 h-12 mx-auto mb-4 text-white/20 group-hover:text-[var(--accent-1)]/60 transition-colors" />
-                                            <Sparkles className="absolute -top-2 -right-2 w-6 h-6 text-[var(--accent-1)]/60 animate-glow" />
+                                            <Maximize className="w-12 h-12 mx-auto mb-4 text-white/20 group-hover:text-white/60 transition-colors" />
+                                            <Sparkles className="absolute -top-2 -right-2 w-6 h-6 text-white/60 animate-glow" />
                                         </div>
-                                        <p className="text-[11px] font-[900] text-[var(--text-dim)] uppercase tracking-widest max-w-[150px] mx-auto">Standby for input signal</p>
+                                        <p className="text-[11px] font-[900] text-white uppercase tracking-widest max-w-[150px] mx-auto">Standby for input signal</p>
                                     </div>
                                 )}
                             </div>
@@ -221,8 +221,8 @@ export default function CreatePostPage() {
                                     { label: 'Resolution', status: '2048px' }
                                 ].map((s, idx) => (
                                     <div key={idx} className="flex items-center justify-between">
-                                        <span className="text-[11px] font-[900] text-[var(--text-dim)] uppercase tracking-widest">{s.label}</span>
-                                        <span className="text-[11px] font-[900] text-[var(--accent-1)] uppercase tracking-widest flex items-center gap-2">
+                                        <span className="text-[11px] font-[900] text-white uppercase tracking-widest">{s.label}</span>
+                                        <span className="text-[11px] font-[900] text-white uppercase tracking-widest flex items-center gap-2">
                                             <div className="w-1 h-1 bg-[var(--accent-1)] rounded-full animate-pulse" />
                                             {s.status}
                                         </span>

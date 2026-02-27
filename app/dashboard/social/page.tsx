@@ -171,10 +171,10 @@ export default function SocialConnectionPage() {
     ];
 
     return (
-        <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+        <div className="max-w-4xl mx-auto space-y-8 pt-24 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div>
-                <h1 className="text-3xl font-[900] text-[var(--text)] tracking-tighter uppercase italic">Social <span className="grad-text">Connections</span></h1>
-                <p className="text-[var(--text-dim)] mt-2 font-[900] text-xs uppercase tracking-widest">Link your Instagram and Facebook accounts to enable direct scheduling. LinkedIn integration coming soon!</p>
+                <h1 className="text-3xl font-[900] text-white tracking-tighter uppercase italic">Social <span className="grad-text">Connections</span></h1>
+                <p className="text-white/70 mt-2 font-[900] text-xs uppercase tracking-widest">Link your Instagram and Facebook accounts to enable direct scheduling. LinkedIn integration coming soon!</p>
                 
                 {connectionError && (
                     <div className="mt-4 p-3 bg-red-400/10 border border-red-400/20 rounded-xl text-red-400 text-xs">
@@ -196,9 +196,9 @@ export default function SocialConnectionPage() {
                                     <div className={cn("inline-flex items-center justify-center w-16 h-16 bg-gradient-to-tr rounded-2xl shadow-xl mb-2 transform -rotate-3 group-hover:rotate-0 transition-transform duration-500 mx-auto", platform.color)}>
                                         <platform.icon className="w-8 h-8 text-white" />
                                     </div>
-                                    <h3 className="text-sm font-[900] text-[var(--text)] tracking-tight uppercase italic leading-none">{platform.name}</h3>
-                                    <p className="text-[var(--text-dim)] font-[900] text-[9px] uppercase tracking-widest opacity-60 mt-1">Coming Soon</p>
-                                    <p className="text-[var(--text-dim)] text-xs mt-3 text-center leading-relaxed">{platform.requires}</p>
+                                    <h3 className="text-sm font-[900] text-white tracking-tight uppercase italic leading-none">{platform.name}</h3>
+                                    <p className="text-white/70 font-[900] text-[9px] uppercase tracking-widest opacity-60 mt-1">Coming Soon</p>
+                                    <p className="text-white/70 text-xs mt-3 text-center leading-relaxed">{platform.requires}</p>
                                 </div>
                             </div>
                         );
@@ -220,8 +220,8 @@ export default function SocialConnectionPage() {
                                         </div>
                                     </div>
                                     <div>
-                                        <h3 className="text-sm font-[900] text-[var(--text)] tracking-tight uppercase italic leading-none">{platform.name} Active</h3>
-                                        <p className="text-[var(--text-dim)] font-[900] text-[9px] uppercase tracking-widest opacity-60 mt-1">Live Sync Enabled</p>
+                                        <h3 className="text-sm font-[900] text-white tracking-tight uppercase italic leading-none">{platform.name} Active</h3>
+                                        <p className="text-white/70 font-[900] text-[9px] uppercase tracking-widest opacity-60 mt-1">Live Sync Enabled</p>
                                     </div>
                                 </div>
 
@@ -248,8 +248,8 @@ export default function SocialConnectionPage() {
                                 </div>
 
                                 <div className="flex-1 space-y-2">
-                                    <h2 className="text-xl font-[900] text-[var(--text)] uppercase tracking-tight italic">Connect {platform.name}</h2>
-                                    <p className="text-xs font-[900] uppercase tracking-widest text-[var(--text-dim)] leading-relaxed max-w-[200px] mx-auto">
+                                    <h2 className="text-xl font-[900] text-white uppercase tracking-tight italic">Connect {platform.name}</h2>
+                                    <p className="text-xs font-[900] uppercase tracking-widest text-white/70 leading-relaxed max-w-[200px] mx-auto">
                                         {platform.description}
                                     </p>
                                 </div>
@@ -257,10 +257,10 @@ export default function SocialConnectionPage() {
                                 <div className="grid grid-cols-3 gap-2 py-4 pt-6 border-t border-white/5 mt-auto">
                                     {platform.features.map((feature, i) => (
                                         <div key={i} className="space-y-1 flex flex-col items-center text-center">
-                                            <div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center text-[var(--accent-1)] border border-white/5 shrink-0">
+                                            <div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center text-white border border-white/5 shrink-0">
                                                 <feature.icon className="w-4 h-4" />
                                             </div>
-                                            <h4 className="font-[900] text-[var(--text)] text-[9px] uppercase tracking-tight">{feature.title}</h4>
+                                            <h4 className="font-[900] text-white text-[9px] uppercase tracking-tight">{feature.title}</h4>
                                         </div>
                                     ))}
                                 </div>
@@ -288,7 +288,7 @@ export default function SocialConnectionPage() {
                                         <span className="text-[8px] font-[900] opacity-80 tracking-widest">{syncStatus}</span>
                                     )}
                                 </button>
-                                <p className="text-[10px] text-[var(--text-dim)] uppercase tracking-tight font-[900] opacity-60">{platform.requires}</p>
+                                <p className="text-[10px] text-white/70 uppercase tracking-tight font-[900] opacity-60">{platform.requires}</p>
                             </div>
                         </div>
                     );
@@ -297,14 +297,14 @@ export default function SocialConnectionPage() {
                 {/* GMB Card Integrated into Grid */}
                 <div className="bg-white/[0.05] p-8 rounded-[2.5rem] border border-dashed border-white/20 flex flex-col items-center justify-center gap-4 opacity-80 relative overflow-hidden group hover:bg-white/[0.08] transition-all">
                     <div className="absolute inset-0 bg-grid-white/[0.03] [mask-image:linear-gradient(0deg,white,transparent)]" />
-                    <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center text-[var(--text)] border border-white/10 shadow-inner group-hover:scale-110 transition-transform">
+                    <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center text-white border border-white/10 shadow-inner group-hover:scale-110 transition-transform">
                         <Settings className="w-8 h-8" />
                     </div>
                     <div className="text-center relative">
-                        <h3 className="text-lg font-[900] text-[var(--text)] uppercase tracking-tight italic">GMB Local</h3>
-                        <p className="text-[var(--text-dim)] font-[900] text-[9px] uppercase tracking-widest opacity-80 mt-1">Coming Soon</p>
+                        <h3 className="text-lg font-[900] text-white uppercase tracking-tight italic">GMB Local</h3>
+                        <p className="text-white/70 font-[900] text-[9px] uppercase tracking-widest opacity-80 mt-1">Coming Soon</p>
                     </div>
-                    <div className="px-5 py-2 text-[var(--text-dim)] font-[900] uppercase tracking-[0.2em] text-[8px] bg-white/10 rounded-full border border-white/10 mt-2">
+                    <div className="px-5 py-2 text-white/70 font-[900] uppercase tracking-[0.2em] text-[8px] bg-white/10 rounded-full border border-white/10 mt-2">
                         Waitlist Only
                     </div>
                 </div>
