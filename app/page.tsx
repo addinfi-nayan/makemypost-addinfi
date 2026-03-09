@@ -5,7 +5,7 @@ import Link from 'next/link';
 import AuthModal from '@/components/AuthModal';
 import Navbar from '@/components/Navbar';
 import { createBrowserClient } from '@/lib/supabase';
-import { useRouter } from 'next/navigation';
+
 import {
   Sparkles,
   Instagram,
@@ -38,7 +38,6 @@ export default function LandingPage() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [user, setUser] = useState<any>(null);
   const supabase = createBrowserClient();
-  const router = useRouter();
 
   useEffect(() => {
     const getUser = async () => {
@@ -58,11 +57,7 @@ export default function LandingPage() {
   }, []);
 
   const handleAuthAction = () => {
-    if (user) {
-      router.push('/dashboard');
-    } else {
-      setIsAuthModalOpen(true);
-    }
+    setIsAuthModalOpen(true);
   };
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -86,7 +81,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
-      <Navbar showDashboardLink={true} />
+      <Navbar />
 
       {/* ─── Hero ─── */}
       <section className="pt-32 pb-24 px-6 relative mesh-gradient">
